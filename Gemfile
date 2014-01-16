@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim-rails'
 gem 'bourbon'
+gem 'normalize-rails'
 gem 'neat'
 gem 'simple_form'
 gem 'responders'

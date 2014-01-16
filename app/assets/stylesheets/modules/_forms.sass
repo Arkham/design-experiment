@@ -1,0 +1,19 @@
+$form-columns: 5
+$label-columns: 1
+$input-columns: $form-columns - $label-columns
+
+form
+  +span-columns($form-columns)
+
+  label
+    +span-columns($label-columns of $form-columns)
+
+  #{$all-text-inputs}
+    +span-columns($input-columns of $form-columns)
+
+  input
+    margin-bottom: 1rem
+
+  input[type="submit"]
+    +shift($label-columns)
+

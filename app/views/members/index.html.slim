@@ -1,9 +1,21 @@
 h1 Members
 
-= link_to "New member", new_member_path
+= link_to "New member", new_member_path, class: "new_button"
 
-ul.members
-  - @members.each do |member|
-    li
-      .name= link_to member.name, member_path(member)
-      .website= member.website
+- if @members.any?
+  table.members
+    thead
+      tr
+        th Name
+        th Website
+        th Friends
+
+    tbody
+      - @members.each do |member|
+        tr
+          td.name= link_to member.name, member_path(member)
+          td.website= member.website
+          td.friends 0
+
+- else
+  p There are no members.
