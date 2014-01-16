@@ -14,6 +14,7 @@ gem 'slim-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'simple_form'
+gem 'responders'
 
 group :development do
   gem 'spring'

@@ -1,0 +1,9 @@
+h1 Members
+
+= link_to "New member", new_member_path
+
+ul.members
+  - @members.each do |member|
+    li
+      .name= link_to member.name, member_path(member)
+      .website= member.website
