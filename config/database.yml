@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: design_experiment_development
+  pool: 5
+  username: arkham
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: design_experiment_test
+  pool: 5
+  username: arkham
+  password:
