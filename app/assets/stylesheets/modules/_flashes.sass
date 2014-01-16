@@ -1,0 +1,11 @@
+@mixin flash-message($color)
+  padding: 0.5rem
+  background-color: tint($color, 60%)
+  border: 1px solid $color
+
+.flash
+  &.notice
+    +flash-message(#00ff00)
+
+  &.alert
+    +flash-message(#ff0000)

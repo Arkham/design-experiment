@@ -1,27 +1,33 @@
-$form-columns: 5
-$label-columns: 1
-$input-columns: $form-columns - $label-columns
+$form-columns: 7
+$label-columns: 2
+$input-columns: 5
 
 form
   +span-columns($form-columns)
 
+  .input
+    margin-bottom: 1rem
+    +clearfix
+
   label
     +span-columns($label-columns of $form-columns)
 
-  #{$all-text-inputs}
+  span.error, #{$all-text-inputs}
     +span-columns($input-columns of $form-columns)
+    +omega
 
-  input
-    margin-bottom: 1rem
+  span.error
+    color: red
+    font-size: 0.8rem
 
   +media($desktop)
-    input[type="submit"]
+    span.error, input[type="submit"]
       +shift($label-columns)
 
   +media($tablet)
     $form-columns: 8
     +span-columns($form-columns)
 
-    label, #{$all-text-inputs}
+    span.error, label, #{$all-text-inputs}
       +span-columns($form-columns)
 
