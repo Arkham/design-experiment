@@ -1,9 +1,11 @@
+require 'open-uri'
+
 class InfoCrawler
   attr_reader :page
 
-  def self.fetch(url)
+  def self.fetch(url, *tags)
     page = Nokogiri::HTML(open(url))
-    new(page).fetch
+    new(page).fetch(*tags)
   end
 
   def initialize(page)
@@ -20,7 +22,7 @@ class InfoCrawler
 
   def scan_for(tag)
     page.css(tag.to_s).map do |node|
-      node.content
+      node.text
     end.join(", ")
   end
 end

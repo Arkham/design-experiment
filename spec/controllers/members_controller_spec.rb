@@ -19,7 +19,7 @@ describe MembersController do
   describe "POST 'create'" do
     it "creates a new member" do
       member_data = { name: "Ju Liu", website: "http://www.google.com" }
-      InfoCrawler.stub(:fetch).with("http://www.google.com").and_return({ h1: "Title, Important" })
+      InfoCrawler.stub(:fetch).with("http://www.google.com", :h1, :h2, :h3).and_return({ h1: "Title, Important" })
       expect{ post 'create', member: member_data }.to change{Member.count}.by(1)
       expect(Member.first.h1).to eq("Title, Important")
     end

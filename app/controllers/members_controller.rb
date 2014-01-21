@@ -12,7 +12,9 @@ class MembersController < ApplicationController
   end
 
   def create
-    attributes = member_params.merge(InfoCrawler.fetch(member_params[:website]))
+    attributes = member_params.merge(
+      InfoCrawler.fetch(member_params[:website], :h1, :h2, :h3)
+    )
     @member = Member.create(attributes)
     respond_with @member
   end
@@ -33,7 +35,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:name, :website, :h1, :h2, :h3)
+    params.require(:member).permit(:name, :website)
   end
 end
 

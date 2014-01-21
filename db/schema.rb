@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20140121091911) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "h1"
-    t.string   "h2"
-    t.string   "h3"
+    t.text     "h1"
+    t.text     "h2"
+    t.text     "h3"
   end
 
 end

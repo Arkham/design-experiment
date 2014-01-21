@@ -16,6 +16,7 @@ gem 'normalize-rails'
 gem 'neat'
 gem 'simple_form'
 gem 'responders'
+gem 'nokogiri'
 gem 'delayed_job_active_record'
 
 group :development do
@@ -42,5 +43,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'timecop'
+  gem 'webmock', '1.15'
+  gem 'vcr'
 end
 
