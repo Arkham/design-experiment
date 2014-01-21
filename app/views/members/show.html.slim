@@ -14,8 +14,13 @@ h2 Headers
 
 h2 Friends
 
+ul.friends
+  - @member.friends.each do |friend|
+    li= link_to friend.name, member_path(friend)
+
 = simple_form_for @member do |m|
   = m.simple_fields_for :friendships do |f|
-    = f.input :member_id, as: :hidden, value: @member.id
-    = f.input :friend_id, collection: Member.except(@member)
-    = f.submit "Add Friendship"
+    - if f.object.new_record?
+      = f.input :member_id, as: :hidden, value: @member.id
+      = f.input :friend_id, collection: Member.except(@member)
+      = f.submit

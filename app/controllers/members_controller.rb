@@ -24,7 +24,11 @@ class MembersController < ApplicationController
 
   def update
     @member.update_attributes(member_params)
-    respond_with @member
+    respond_with @member do |format|
+      unless @member.valid?
+        format.html { render 'show' }
+      end
+    end
   end
 
   def destroy

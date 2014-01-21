@@ -16,7 +16,7 @@ h1 Members
         tr
           td= link_to member.name, member_path(member)
           td= link_to member.short_website, member.short_website
-          td 0
+          td= member.friends.count
           td= link_to "Delete", member_path(member), method: :delete, data: { confirm: "Are you sure?" }
 
 - else
