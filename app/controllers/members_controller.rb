@@ -12,10 +12,8 @@ class MembersController < ApplicationController
   end
 
   def create
-    attributes = member_params.merge(
-      InfoCrawler.fetch(member_params[:website], :h1, :h2, :h3)
-    )
-    @member = Member.create(attributes)
+    @member = Member.new(member_params)
+    MemberRepository.create(@member) if @member.save
     respond_with @member
   end
 

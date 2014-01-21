@@ -13,12 +13,17 @@ class InfoCrawler
   end
 
   def fetch(*tags)
+    tags = default_tags if tags.blank?
     tags.each_with_object({}) do |tag, result|
       result[tag] = scan_for(tag)
     end
   end
 
   private
+
+  def default_tags
+    [:h1, :h2, :h3]
+  end
 
   def scan_for(tag)
     page.css(tag.to_s).map do |node|
