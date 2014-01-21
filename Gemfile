@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'responders'
 gem 'nokogiri'
 gem 'delayed_job_active_record'
+gem 'bitly'
 
 group :development do
   gem 'spring'

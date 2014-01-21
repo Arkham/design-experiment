@@ -2,7 +2,11 @@ h1= @member.name
 
 h2 Website
 
-= @member.website
+= link_to @member.website, @member.website
+
+h2 Shortened URL
+
+= link_to @member.short_website, @member.short_website
 
 h2 Headers
 

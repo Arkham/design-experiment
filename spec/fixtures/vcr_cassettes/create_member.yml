@@ -19,7 +19,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Tue, 21 Jan 2014 15:18:58 GMT
+      - Tue, 21 Jan 2014 16:24:14 GMT
       Server:
       - Apache
       Location:
@@ -41,7 +41,7 @@ http_interactions:
         <p>The document has moved <a href="http://ark.asengard.net/blog/">here</a>.</p>
         </body></html>
     http_version: 
-  recorded_at: Tue, 21 Jan 2014 15:18:58 GMT
+  recorded_at: Tue, 21 Jan 2014 16:24:14 GMT
 - request:
     method: get
     uri: http://ark.asengard.net/blog/
@@ -61,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Jan 2014 15:18:58 GMT
+      - Tue, 21 Jan 2014 16:24:14 GMT
       Server:
       - Apache
       X-Pingback:
@@ -83,7 +83,7 @@ http_interactions:
         dGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0L2h0
         bWw7IGNoYXJzZXQ9VVRGLTgiIC8+DQo8dGl0bGU+QXJraGFtJiMwMzk7cyBF
         eXJpZSAgPC90aXRsZT4NCjxtZXRhIG5hbWU9ImdlbmVyYXRvciIgY29udGVu
-        dD0iV29yZFByZXNzIDMyOSIgLz48IS0tIGxlYXZlIHRoaXMgZm9yIHN0YXRz
+        dD0iV29yZFByZXNzIDI2MCIgLz48IS0tIGxlYXZlIHRoaXMgZm9yIHN0YXRz
         IC0tPg0KPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwOi8vYXJr
         LmFzZW5nYXJkLm5ldC9ibG9nL3dwLWNvbnRlbnQvdGhlbWVzL3JlZ2VuZXJh
         Y3kvc3R5bGUuY3NzIiB0eXBlPSJ0ZXh0L2NzcyIgbWVkaWE9InNjcmVlbiIg
@@ -642,5 +642,35 @@ http_interactions:
         cnRlc3kgb2YgUmljYXJkbyBHb256JmFhY3V0ZTtsZXogKGh0dHA6Ly9yaWNr
         LmppbmxhYnMuY29tLykgLS0+CjwvYm9keT4NCjwvaHRtbD4NCg==
     http_version: 
-  recorded_at: Tue, 21 Jan 2014 15:19:00 GMT
+  recorded_at: Tue, 21 Jan 2014 16:24:16 GMT
+- request:
+    method: get
+    uri: http://api.bit.ly/v3/shorten?apiKey=R_4d6615b39125435c2b37a6eabad78c3c&login=o_5onc7ikore&longUrl=http://ark.asengard.net/blog
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 21 Jan 2014 16:24:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Mime-Version:
+      - '1.0'
+      Content-Length:
+      - '197'
+    body:
+      encoding: UTF-8
+      string: |
+        { "status_code": 200, "status_txt": "OK", "data": { "long_url": "http:\/\/ark.asengard.net\/blog", "url": "http:\/\/bit.ly\/1jkR7fN", "hash": "1jkR7fN", "global_hash": "1jkR7w0", "new_hash": 1 } }
+    http_version: 
+  recorded_at: Tue, 21 Jan 2014 16:24:16 GMT
 recorded_with: VCR 2.8.0
