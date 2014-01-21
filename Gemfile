@@ -16,6 +16,7 @@ gem 'normalize-rails'
 gem 'neat'
 gem 'simple_form'
 gem 'responders'
+gem 'delayed_job_active_record'
 
 group :development do
   gem 'spring'
