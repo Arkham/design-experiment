@@ -24,11 +24,7 @@ class MembersController < ApplicationController
 
   def update
     @member.update_attributes(member_params)
-    respond_with @member do |format|
-      unless @member.valid?
-        format.html { render 'show' }
-      end
-    end
+    respond_with @member
   end
 
   def destroy
@@ -43,7 +39,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:name, :website, friendships_attributes: [:member_id, :friend_id] )
+    params.require(:member).permit(:name, :website)
   end
 end
 

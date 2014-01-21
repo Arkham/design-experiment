@@ -14,18 +14,16 @@ h2 Headers
 
 h2 Friends
 
-= simple_form_for @member do |m|
-  = m.simple_fields_for :friendships do |f|
-    - friendship = f.object
-
-    - if friendship.new_record?
-      = f.input :member_id, as: :hidden, value: @member.id
-      = f.input :friend_id, collection: Member.except(@member)
-      = f.submit
-
-    - else
-      - friend = friendship.friend
-      .friend
+ul.members
+  - @member.friendships.each do |friendship|
+    - if friendship.persisted? && friend = friendship.friend
+      li
         = link_to friend.name, member_path(friend)
-        span.remove= link_to ' x', friendship_path(friendship), method: :delete, data: { confirm: "Are you sure you want to remove this friendship?" }
+        span.remove
+          = link_to ' x', friendship_path(friendship), method: :delete, data: { confirm: "Are you sure you want to remove this friendship?" }
+
+= simple_form_for @friendship do |f|
+  = f.input :member_id, as: :hidden, value: @member.id
+  = f.input :friend_id, collection: Member.except(@member)
+  = f.submit
 
