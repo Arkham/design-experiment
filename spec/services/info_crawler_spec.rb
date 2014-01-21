@@ -8,9 +8,9 @@ describe InfoCrawler do
   context "#fetch" do
     it "fetches given tags content" do
       expect(service.fetch(:h1, :h2, :h3)).to eq({
-        h1: ["Title", "Important"],
-        h2: ["Subtitle"],
-        h3: ["Mini", "Small"]
+        h1: "Title, Important",
+        h2: "Subtitle",
+        h3: "Mini, Small"
       })
     end
   end
