@@ -12,3 +12,10 @@ h2 Headers
 
 = member_headers(@member)
 
+h2 Friends
+
+= simple_form_for @member do |m|
+  = m.simple_fields_for :friendships do |f|
+    = f.input :member_id, as: :hidden, value: @member.id
+    = f.input :friend_id, collection: Member.except(@member)
+    = f.submit "Add Friendship"

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :member do
-    name "Ju Liu"
+    sequence(:name) {|n| "John Doe #{n}" }
     website "http://www.google.com"
   end
 end

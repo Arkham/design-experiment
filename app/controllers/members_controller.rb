@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   respond_to :html
 
-  before_action :find_member, only: [:show, :destroy]
+  before_action :find_member, only: [:show, :update, :destroy]
 
   def index
     @members = Member.all
@@ -18,6 +18,12 @@ class MembersController < ApplicationController
   end
 
   def show
+    @member.friendships.build
+    respond_with @member
+  end
+
+  def update
+    @member.update_attributes(member_params)
     respond_with @member
   end
 
@@ -33,7 +39,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:name, :website)
+    params.require(:member).permit(:name, :website, friendships_attributes: [:member_id, :friend_id] )
   end
 end
 
