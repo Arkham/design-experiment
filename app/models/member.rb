@@ -5,7 +5,7 @@ class Member < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships, class_name: "Member"
 
-  accepts_nested_attributes_for :friendships, reject_if: :all_blank
+  accepts_nested_attributes_for :friendships, reject_if: :all_blank, allow_destroy: true
 
   scope :except, ->(member) { where("members.id != ?", member.id) }
 end

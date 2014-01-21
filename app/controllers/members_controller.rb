@@ -18,7 +18,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member.friendships.build
+    @friendship = @member.friendships.build
     respond_with @member
   end
 

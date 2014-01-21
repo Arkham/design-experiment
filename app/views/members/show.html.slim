@@ -14,13 +14,18 @@ h2 Headers
 
 h2 Friends
 
-ul.friends
-  - @member.friends.each do |friend|
-    li= link_to friend.name, member_path(friend)
-
 = simple_form_for @member do |m|
   = m.simple_fields_for :friendships do |f|
-    - if f.object.new_record?
+    - friendship = f.object
+
+    - if friendship.new_record?
       = f.input :member_id, as: :hidden, value: @member.id
       = f.input :friend_id, collection: Member.except(@member)
       = f.submit
+
+    - else
+      - friend = friendship.friend
+      .friend
+        = link_to friend.name, member_path(friend)
+        span.remove= link_to ' x', friendship_path(friendship), method: :delete, data: { confirm: "Are you sure you want to remove this friendship?" }
+
