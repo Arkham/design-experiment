@@ -1,8 +1,7 @@
-input[type="submit"]
+a.button, input[type="submit"]
   +button
   font-size: 1em
 
-a.new_button
-  +button(simple, #00ff00)
-  font-size: 1em
+  &.danger
+    +button(simple, #ff0000)
 
