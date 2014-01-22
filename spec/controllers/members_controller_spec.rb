@@ -24,4 +24,15 @@ describe MembersController do
     end
   end
 
+  describe "GET 'search_connections'" do
+    let(:member) { create(:member) }
+    let(:service) { double }
+
+    it "searches for member connections" do
+      SearchMemberConnections.should_receive(:new).with(member).and_return(service)
+      service.should_receive(:search_topic).with("Ruby Love")
+      get 'search_connections', id: member.id, search: { topic: "Ruby Love" }
+    end
+  end
+
 end

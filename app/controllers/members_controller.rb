@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   respond_to :html
 
-  before_action :find_member, only: [:show, :update, :destroy]
+  before_action :find_member, only: [:show, :update, :destroy, :search_connections]
 
   def index
     @members = Member.all
@@ -32,6 +32,10 @@ class MembersController < ApplicationController
     respond_with @member
   end
 
+  def search_connections
+    SearchMemberConnections.new(@member).search_topic(search_params[:topic])
+  end
+
   private
 
   def find_member
@@ -40,6 +44,10 @@ class MembersController < ApplicationController
 
   def member_params
     params.require(:member).permit(:name, :website)
+  end
+
+  def search_params
+    params.require(:search).permit(:topic)
   end
 end
 

@@ -28,6 +28,6 @@ class InfoCrawler
   def scan_for(tag)
     page.css(tag.to_s).map do |node|
       node.text
-    end.join(", ")
+    end.map(&:presence).compact.join(", ")
   end
 end

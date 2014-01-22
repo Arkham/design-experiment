@@ -3,9 +3,10 @@ $label-columns: 2
 $input-columns: 5
 
 form
-  +span-columns($form-columns)
+  +clearfix
 
-  .input
+  .input, .actions
+    +span-columns($form-columns)
     margin-bottom: 1rem
     +clearfix
 

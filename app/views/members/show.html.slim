@@ -8,10 +8,6 @@ h2 Shortened URL
 
 = link_to @member.short_website, @member.short_website
 
-h2 Headers
-
-= member_headers(@member)
-
 h2 Friends
 
 ul.members
@@ -25,5 +21,18 @@ ul.members
 = simple_form_for @friendship do |f|
   = f.input :member_id, as: :hidden, value: @member.id
   = f.input :friend_id, collection: Member.except(@member)
-  = f.submit
+  .actions
+    = f.submit
 
+h2 Search
+
+= form_tag search_connections_member_path(@member), method: :get
+  .input
+    = label_tag 'search[topic]', 'Topic'
+    = text_field_tag 'search[topic]'
+  .actions
+    = submit_tag 'Search connections'
+
+h2 Headers
+
+= member_headers(@member)
