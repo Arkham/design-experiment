@@ -33,7 +33,7 @@ class MembersController < ApplicationController
   end
 
   def search_connections
-    SearchMemberConnections.new(@member).search_topic(search_params[:topic])
+    @results = SearchMemberConnections.new(@member).search_topic(search_params[:topic])
   end
 
   private

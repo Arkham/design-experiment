@@ -6,4 +6,8 @@ module MemberHelper
       end
     end.html_safe
   end
+
+  def member_introduction_path_for(collection)
+    collection.map(&:name).join(" > ")
+  end
 end
