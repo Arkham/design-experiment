@@ -1,8 +1,12 @@
 module MemberHelper
   def member_headers(member)
-    [:h1, :h2, :h3].inject("") do |result, header|
-      result << content_tag(:p, class: "member_header") do
-        "#{header}: #{member.send(header)}"
+    [:h1, :h2, :h3].each_with_object("") do |header, result|
+      content = member.send(header)
+
+      if content.present?
+        result << content_tag(:p, class: "member_header") do
+          "#{header}: #{content}"
+        end
       end
     end.html_safe
   end
