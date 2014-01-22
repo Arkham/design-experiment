@@ -1,7 +1,8 @@
 class MemberRepository
   class << self
     def create(member)
-      new.delay.create(member)
+      # new.delay.create(member)
+      new.create(member)
     end
   end
 
